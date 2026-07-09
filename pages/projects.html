@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secured Project View</title>
+    <style>
+
+	/* 1. Global Page and Main Background Settings */
+        body {
+            margin: 0;
+            padding: 40px 0;
+	    background-image: url('images/tech.jpg');
+	    background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #222222;
+	    background-position: center;
+            background-size: cover; /* Smoothly shrinks/scales full background */
+            display: flex;            
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 0;
+            background-color: #222222;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+            /* BLOCKS TEXT SELECTION/HIGHLIGHTING ACROSS THE PAGE */
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none;     /* IE 10 and Edge */
+            user-select: none;         /* Standard syntax */
+        }
+
+        .subpage-header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .doc-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .secured-page {
+            max-width: 850px;
+            width: 95%;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            background-color: white;
+            display: block;
+            
+            /* PREVENTS DRAGGING THE IMAGE TO DESKTOP OR TRICK COPYING */
+            -webkit-user-drag: none;
+            user-select: none;
+            pointer-events: none; /* Disables right-click options specifically on the image */
+        }
+    </style>
+</head>
+
+
+<!-- BLOCKS RIGHT CLICK POPUP MENUS ON THE ENTIRE PAGE -->
+<body oncontextmenu="return false;">
+
+    <div class="subpage-header">
+        <h1>Project 1</h1>
+    </div>
+<div class="doc-container">
+        <!-- Displayed cleanly, but users can't right-click, highlight, or drag -->
+        <img src="images/Portfolio-images-0.jpg" alt="Page 0" class="secured-page">
+        <img src="images/Portfolio-images-1.jpg" alt="Page 1" class="secured-page">
+        <img src="images/Portfolio-images-2.jpg" alt="Page 2" class="secured-page">
+
+    </div>
+
+<div class="subpage-header">
+        <h1>Project 2</h1>
+    </div>
+<div class="doc-container">
+	<img src="images/Portfolio-images-3.jpg" alt="Page 3" class="secured-page">
+        <img src="images/Portfolio-images-4.jpg" alt="Page 4" class="secured-page">
+        <img src="images/Portfolio-images-5.jpg" alt="Page 5" class="secured-page">
+    </div>
+
+<div class="subpage-header">
+        <h1>Project 3</h1>
+    </div>
+<div class="doc-container">
+  	<img src="images/Portfolio-images-6.jpg" alt="Page 6" class="secured-page">
+        <img src="images/Portfolio-images-7.jpg" alt="Page 7" class="secured-page">
+        <img src="images/Portfolio-images-8.jpg" alt="Page 8" class="secured-page">
+ </div>
+
+<div class="subpage-header">
+        <h1>Project 4</h1>
+    </div>
+<div class="doc-container">
+	<img src="images/Portfolio-images-9.jpg" alt="Page 9" class="secured-page">
+        <img src="images/Portfolio-images-10.jpg" alt="Page 10" class="secured-page">
+        <img src="images/Portfolio-images-11.jpg" alt="Page 11" class="secured-page">
+ </div>
+
+<div class="subpage-header">
+        <h1>Project 5</h1>
+    </div>
+<div class="doc-container">
+	<img src="images/Portfolio-images-12.jpg" alt="Page 12" class="secured-page">
+        <img src="images/Portfolio-images-13.jpg" alt="Page 13" class="secured-page">
+        <img src="images/Portfolio-images-14.jpg" alt="Page 14" class="secured-page">
+</div>
+
+</body>
+</html>
