@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuous Document Viewer</title>
+    <style>
+	/* 1. Global Page and Main Background Settings */
+        body {
+            margin: 0;
+            padding: 40px 0;
+	    background-image: url('images/tech.jpg');
+	    background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #222222;
+	    background-position: center;
+            background-size: cover; /* Smoothly shrinks/scales full background */
+            display: flex;            
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* 2. Top Profile Row Settings */
+        .profile-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            max-width: 850px;
+            width: 95%;
+            margin-bottom: 35px;
+            gap: 25px;
+        }
+
+        /* Isolated Avatar CV Link - Normal State */
+        .avatar-logo {
+            display: block;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-image: url('images/avatar.jpg');
+            background-size: cover;
+            background-position: center;
+            border: 3px solid #ff4400; /* GrabCAD Orange Border */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: background-image 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        /* Isolated Avatar CV Link - Hover State (ONLY affects the circle) */
+        .avatar-logo:hover {
+            background-image: url('images/cv-hover-icon.png'); /* Swaps out image inside circle */
+            transform: scale(1.05); /* Quick interactive grow animation */
+        }
+
+	/* Welcome Text Box with 70% Transparent Background Shadow */
+        .welcome-header {
+            color: #ffffff;
+            text-align: left;
+	    background-color: rgba(145, 145, 145, 0.7); 
+   	    padding: 20px 25px;        /* Inner padding to give the text breathing room */
+   	    border-radius: 8px;        /* Matches the corner roundness of your portfolio cards */
+    	    box-sizing: border-box;
+   	  
+        }
+
+        .welcome-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            letter-spacing: 1px;
+        }
+
+        .welcome-header p {
+            font-size: 16px;
+	    font-weight: 500;
+            color: #dedcdc;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Clickable Thumbnail Card */
+        .portfolio-card {
+            display: block;
+            position: relative;
+            max-width: 850px;
+            width: 95%;
+	    aspect-ratio: 21 / 5; /* Dynamic responsive aspect shape */	
+            min-height: 180px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+            text-decoration: none;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+	/* ADD THESE TWO LINES FOR THE THIN WHITE FRAME */
+    	    border: 2px solid rgba(255, 255, 255, 0.8); /* 1px thin white line (80% opacity) */
+   	    box-sizing: border-box;        /* Keeps the frame tucked inside the 180px height */
+    	    
+	    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+        }
+
+	   .portfolio-card:hover {
+    	   transform: translateY(-4px);
+	   box-shadow: 0 10px 25px rgba(255, 68, 0, 0.3); /* GrabCAD orange glow tint */
+	   border-color: #ff4500; /* Changes the border to bright solid white when hovered */
+        }
+
+	/* Card Background Image Control */
+        .card-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+    /* CONTROL STATIC BRIGHTNESS HERE */
+            filter: brightness(35%) contrast(110%);  /* Lower % = Darker, Higher % = Lighter */
+	    transition: filter 0.3s ease-in-out; /* Keeps brightness shifts looking smooth and fluid */
+	.portfolio-card:hover .card-bg {
+            filter: brightness(50%) contrast(115%); /* Controls hover brightness on images */
+        }
+       }
+
+        .card-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin: 0 0 8px 0;
+            text-transform: uppercase;
+        }
+
+        .card-subtitle {
+            font-size: 14px;
+            color: #ff4400;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        /* Responsive Mobile Layout Stack */
+        @media (max-width: 600px) {
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            .welcome-header {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Profile & Welcome Section Container -->
+    <div class="profile-container">
+        <!-- Clicking the avatar circle opens your CV in a new tab -->
+        <a href="my-resume.html" target="_blank" class="avatar-logo" title="View my CV / Resume"></a>
+
+        <div class="welcome-header">
+            <h1>Hello I am Jovan, welcome to my page.</h1>
+            <p>Explore my project documentation below, or visit my engineering library for live 3D models.</p>
+        </div>
+    </div>
+
+    <!-- My story (Links to separate subpage) -->
+    <a href="story.html" class="portfolio-card" target="_blank">
+        <img src="images/mystr2.jpg" alt="My Story Background" class="card-bg">
+        <div class="card-content">
+            <h2 class="card-title">My story</h2>
+            <p class="card-subtitle"> VIEW DOCUMENTATION ➔</p>
+        </div>
+    </a>
+
+    <!-- Certificates (Links to separate subpage) -->
+    <a href="certificates.html" class="portfolio-card" target="_blank">
+        <img src="images/mystr.jpg" alt="Certificates Background" class="card-bg">
+        <div class="card-content">
+            <h2 class="card-title"> Certificates </h2>
+            <p class="card-subtitle">VIEW CERTIFICATES ➔</p>
+        </div>
+    </a>
+
+    <!-- GrabCAD Library (External URL link remains) -->
+    <a href="https://grabcad.com/jovan.belakaposki-1/models" class="portfolio-card" target="_blank">
+        <img src="images/GrabCAD_logo.jpg" alt="GrabCAD Portfolio Background" class="card-bg">
+        <div class="card-content">
+            <h2 class="card-title">My GrabCAD Online Models</h2>
+            <p class="card-subtitle">VIEW FULL 3D PORTFOLIO ➔</p>
+        </div>
+    </a>
+
+    <!-- Technical projects (Links to separate subpage) -->
+    <a href="projects.html" class="portfolio-card" target="_blank">
+        <img src="images/bckground1.jpg" alt="Technical Projects Background" class="card-bg">
+        <div class="card-content">
+            <h2 class="card-title">Technical projects & skills</h2>
+            <p class="card-subtitle"> VIEW PROJECTS ➔</p>
+        </div>
+    </a>
+
+</body>
+</html>
