@@ -21,11 +21,13 @@
     transition: background 0.18s, box-shadow 0.18s;
     text-decoration: none;
 }
+
 .back-button:hover {
     background: #d93900;
-	box-shadow: 0 4px 10px rgba(255, 68, 0, 0.4);
+    box-shadow: 0 4px 10px rgba(255, 68, 0, 0.4);
 }
-		/* Fixed container that follows scroll */
+
+/* Fixed container that follows scroll */
 .back-button-container {
     position: fixed; /* Makes it stick while scrolling */
     top: 20px; /* Distance from top of viewport */
@@ -35,15 +37,15 @@
 
 @media (max-width: 600px) {
     .back-button { 
-        font-size: 1em;
-		padding: 0.5em 1.2em;
+        font-size: 0.9em;
+        padding: 0.5em 1.2em;
     }
     .back-button-container {
         top: 15px;
         left: 10px;
     }
 }
-		
+
 	/* 1. Global Page and Main Background Settings */
         body {
             margin: 0;
@@ -107,12 +109,13 @@
 
 <!-- BLOCKS RIGHT CLICK POPUP MENUS ON THE ENTIRE PAGE -->
 <body oncontextmenu="return false;">
-	
-	<div class="back-button-container">
-		<button class="back-button" onclick="window.history.back()">← Back to Main Page</button>
-	</div>
 
-	<div class="subpage-header">
+<div class="back-button-container">
+<button class="back-button" onclick="window.history.back()">← Back to Main Page</button>
+</div>
+
+
+    <div class="subpage-header">
         <h1>Project 1</h1>
     </div>
 <div class="doc-container">
