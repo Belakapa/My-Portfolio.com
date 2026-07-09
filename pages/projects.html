@@ -14,7 +14,6 @@
     border: none;
     border-radius: 22px;
     padding: 0.6em 1.4em;
-    margin-bottom: 1.5em;
     font-size: 1em;
     font-weight: 500;
     cursor: pointer;
@@ -24,26 +23,24 @@
 }
 .back-button:hover {
     background: #d93900;
+	box-shadow: 0 4px 10px rgba(255, 68, 0, 0.4);
 }
-@media (max-width: 600px) {
-    .back-button { width: 100%; font-size: 1.18em; }
-}
-
-/* Container to align button to the left */
+		/* Fixed container that follows scroll */
 .back-button-container {
-    width: 100%;
-    margin: 40px 0 0 0;
-    padding-left: 20px; /* Controls how far left - adjust this value */
-    text-align: left;
+    position: fixed; /* Makes it stick while scrolling */
+    top: 20px; /* Distance from top of viewport */
+    left: 20px; /* Distance from left edge */
+    z-index: 1000; /* Ensures it stays on top of other content */
 }
 
 @media (max-width: 600px) {
     .back-button { 
-        width: auto;
         font-size: 1em;
+		padding: 0.5em 1.2em;
     }
     .back-button-container {
-        padding-left: 10px; /* Less padding on mobile */
+        top: 15px;
+        left: 10px;
     }
 }
 		
